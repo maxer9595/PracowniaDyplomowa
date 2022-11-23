@@ -38,7 +38,7 @@ public class PlayerMovment : MonoBehaviour
         {
             isSprinting = false;
         }
-        if (isSprinting)
+        if (isSprinting && !isJumping)
         {
             playerSpeed = sprintSpeed;
         }
