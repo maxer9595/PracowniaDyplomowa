@@ -5,21 +5,49 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     [SerializeField] float movmentSpeed = 10f;
+    [SerializeField] float sprintSpeed = 15f;
     [SerializeField] float jumpHeight = 5f;
     Rigidbody rb;
     bool isJumping = false;
+    bool isSprinting = false;
+    float playerSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerSpeed = movmentSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Mover();
+
+        Moving();
         Jumping();
+        Sprinting();
     }
+
+    private void Sprinting()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
+        if (isSprinting)
+        {
+            playerSpeed = sprintSpeed;
+        }
+        else
+        {
+            playerSpeed = movmentSpeed;
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag != "floor")
@@ -36,10 +64,10 @@ public class PlayerMovment : MonoBehaviour
         }
     }
 
-    private void Mover()
+    private void Moving()
     {
-        float x = Input.GetAxis("Horizontal") * movmentSpeed;
-        float z = Input.GetAxis("Vertical") * movmentSpeed;
+        float x = Input.GetAxis("Horizontal") * playerSpeed;
+        float z = Input.GetAxis("Vertical") * playerSpeed;
         Vector3 changePosition = transform.right * x + transform.forward * z;
         rb.velocity = new Vector3(changePosition.x, rb.velocity.y, changePosition.z);
     }

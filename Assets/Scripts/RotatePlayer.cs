@@ -6,6 +6,7 @@ public class RotatePlayer : MonoBehaviour
 {
     [SerializeField] float sens = 250f;
     public Transform Camera;
+    float cameraRotation = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,13 @@ public class RotatePlayer : MonoBehaviour
     {
         float y = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
         float x = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+
         transform.Rotate(Vector3.up * x);
 
-        Vector3 rotate = new Vector3(y * sens / 250, 0, 0);
-        Camera.localEulerAngles -= rotate;
+        cameraRotation -= y;
+        cameraRotation = Mathf.Clamp(cameraRotation, -90f, 90f);
+        Camera.localEulerAngles = Vector3.right * cameraRotation;
+
 
     }
 }
