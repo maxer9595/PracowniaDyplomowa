@@ -7,6 +7,13 @@ using UnityEngine.UI;
 public class Hunger : MonoBehaviour
 {
     public Slider HungerBar;
+    public Slider HealthBar;
+
+    [SerializeField] float hungerSpeed = 1f;
+    [SerializeField] float hungerSprintSpeed = 2f;
+    [SerializeField] float hungerJumpSpeed = 1f;
+    [SerializeField] float hungerDamage = 1f;
+
     float maxHunger = 100f;
     float hunger;
     bool isJumping;
@@ -25,6 +32,11 @@ public class Hunger : MonoBehaviour
         {
             NewMethod();
         }
+        if (hunger <= 0)
+        {
+            HealthBar.value -= hungerDamage * Time.deltaTime;
+        }
+
 
     }
     private void OnCollisionEnter(Collision other)
@@ -39,16 +51,16 @@ public class Hunger : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            hunger -= 2f * Time.deltaTime;
+            hunger -= hungerSprintSpeed * Time.deltaTime;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            hunger -= 1f;
+            hunger -= hungerJumpSpeed;
             isJumping = true;
         }
         else
         {
-            hunger -= 1f * Time.deltaTime;
+            hunger -= hungerSpeed * Time.deltaTime;
         }
     }
 }
