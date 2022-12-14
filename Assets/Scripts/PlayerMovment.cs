@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovment : MonoBehaviour
 {
+    public GameObject eq;
     [SerializeField] float movmentSpeed = 10f;
     [SerializeField] float sprintSpeed = 15f;
     [SerializeField] float jumpHeight = 5f;
     Rigidbody rb;
     bool isJumping = false;
     bool isSprinting = false;
+    bool isEqVisible = false;
     float playerSpeed;
 
     // Start is called before the first frame update
@@ -26,6 +29,21 @@ public class PlayerMovment : MonoBehaviour
         Moving();
         Jumping();
         Sprinting();
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (isEqVisible)
+            {
+                eq.SetActive(false);
+                isEqVisible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                eq.SetActive(true);
+                isEqVisible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+        }
     }
 
     private void Sprinting()
