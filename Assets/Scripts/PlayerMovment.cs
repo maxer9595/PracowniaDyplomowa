@@ -25,10 +25,14 @@ public class PlayerMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Moving();
         Jumping();
         Sprinting();
+        ShowEq();
+    }
+
+    private void ShowEq()
+    {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isEqVisible)
@@ -36,12 +40,14 @@ public class PlayerMovment : MonoBehaviour
                 eq.SetActive(false);
                 isEqVisible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                GetComponent<RotatePlayer>().enabled = true;
             }
             else
             {
                 eq.SetActive(true);
                 isEqVisible = true;
                 Cursor.lockState = CursorLockMode.Confined;
+                GetComponent<RotatePlayer>().enabled = false;
             }
         }
     }

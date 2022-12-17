@@ -30,7 +30,7 @@ public class Hunger : MonoBehaviour
         HungerBar.value = hunger;
         if (hunger > 0)
         {
-            NewMethod();
+            UpdateHunger();
         }
         if (hunger <= 0)
         {
@@ -47,7 +47,7 @@ public class Hunger : MonoBehaviour
         }
     }
 
-    private void NewMethod()
+    private void UpdateHunger()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {

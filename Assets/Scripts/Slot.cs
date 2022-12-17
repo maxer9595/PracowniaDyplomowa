@@ -10,8 +10,8 @@ public class Slot : MonoBehaviour, IDropHandler
         if (transform.childCount == 0)
         {
             GameObject dropped = eventData.pointerDrag;
-            DragItem dragItem = dropped.GetComponent<DragItem>();
-            dragItem.afterParent = transform;
+            ItemInInventory itemInInventory = dropped.GetComponent<ItemInInventory>();
+            itemInInventory.afterParent = transform;
         }
     }
 

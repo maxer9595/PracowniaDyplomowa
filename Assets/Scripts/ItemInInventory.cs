@@ -4,10 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemInInventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image itemImage;
+    [HideInInspector] public Item item;
     [HideInInspector] public Transform afterParent;
+
+    public void CreateItem(Item newItem)
+    {
+        item = newItem;
+        itemImage.sprite = newItem.icon;
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         afterParent = transform.parent;

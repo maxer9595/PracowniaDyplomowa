@@ -3729,6 +3729,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuickSlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8826743176288380715, guid: a41d6916c030a794ebfcd0fd4543135a, type: 3}
+      propertyPath: m_CellSize.x
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826743176288380715, guid: a41d6916c030a794ebfcd0fd4543135a, type: 3}
+      propertyPath: m_CellSize.y
+      value: 85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a41d6916c030a794ebfcd0fd4543135a, type: 3}
 --- !u!1001 &1793499473
@@ -4523,6 +4531,10 @@ PrefabInstance:
     - target: {fileID: 3223075946535344203, guid: a41d6916c030a794ebfcd0fd4543135a, type: 3}
       propertyPath: m_Name
       value: QuickSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826743176288380715, guid: a41d6916c030a794ebfcd0fd4543135a, type: 3}
+      propertyPath: m_Spacing.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a41d6916c030a794ebfcd0fd4543135a, type: 3}
