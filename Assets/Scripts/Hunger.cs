@@ -63,4 +63,12 @@ public class Hunger : MonoBehaviour
             hunger -= hungerSpeed * Time.deltaTime;
         }
     }
+    public void Eating(float value)
+    {
+        hunger += value;
+        if (hunger > 100f)
+        {
+            hunger = 100f;
+        }
+    }
 }

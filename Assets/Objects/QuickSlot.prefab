@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6226415, g: 0.1262905, b: 0.1262905, a: 0.46666667}
+  m_Color: {r: 0.21586864, g: 0.7264151, b: 0.23511778, a: 0.46666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee49a8ad9ce23c44a03c6b0983d9945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 3223075946535344201}
+  focused: {r: 0.7058824, g: 0.14117648, b: 0.14117648, a: 1}
+  unfocused: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &8826743176288380715
 MonoBehaviour:
   m_ObjectHideFlags: 0

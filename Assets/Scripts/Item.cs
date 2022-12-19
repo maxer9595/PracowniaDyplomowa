@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Item")]
 public class Item : ScriptableObject
@@ -11,6 +9,7 @@ public class Item : ScriptableObject
     public itemType itemType;
     [SerializeField] public float actionValue;
     public Vector3Int range = new Vector3Int(1, 1, 1);
+    // public bool 
 }
 
 public enum itemType

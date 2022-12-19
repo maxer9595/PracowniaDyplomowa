@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -7,8 +5,10 @@ using UnityEngine.EventSystems;
 public class ItemInInventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image itemImage;
-    [HideInInspector] public Item item;
+    public Item item;
     [HideInInspector] public Transform afterParent;
+    [HideInInspector] public int count = 1;
+
 
     public void CreateItem(Item newItem)
     {
