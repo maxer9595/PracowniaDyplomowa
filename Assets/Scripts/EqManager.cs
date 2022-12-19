@@ -3,10 +3,15 @@ using UnityEngine.UI;
 
 public class EqManager : MonoBehaviour
 {
+    public static EqManager instance;
     public Slot[] slots;
     public GameObject itemPrefab;
     int focusedSlot = -1;
     public Hunger hunger;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         ChangeFocusOnSlot(0);
@@ -66,21 +71,26 @@ public class EqManager : MonoBehaviour
         ItemInInventory slotValue = slot.GetComponentInChildren<ItemInInventory>();
         if (slotValue != null)
         {
-            if (slotValue.item.itemType == itemType.Food)
-            {
-                hunger.Eating(slotValue.item.actionValue);
-                slotValue.count--;
-                if (slotValue.count <= 0)
-                {
-                    Destroy(slotValue.gameObject);
-                }
-
-            }
-
+            EatAndDestroy(slotValue);
             return slotValue.item;
         }
         return null;
     }
+
+    private void EatAndDestroy(ItemInInventory slotValue)
+    {
+        if (slotValue.item.itemType == itemType.Food)
+        {
+            hunger.Eating(slotValue.item.actionValue);
+            slotValue.count--;
+            if (slotValue.count <= 0)
+            {
+                Destroy(slotValue.gameObject);
+            }
+
+        }
+    }
+
     public void useItem()
     {
         if (Input.GetMouseButtonDown(0))
