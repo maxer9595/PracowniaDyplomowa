@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    [SerializeField] public SphereCollider itemCollider;
-    [SerializeField] public float movespeed;
-
     public Item item;
 
 
@@ -22,7 +17,6 @@ public class ItemController : MonoBehaviour
     }
     private void Collect()
     {
-        Destroy(itemCollider);
         Destroy(gameObject);
         Debug.Log("Collected");
     }

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject itemToSpawn;
+    public static Spawner instance;
     public GameObject player;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Vector3 xd = player.transform.position;
-            xd.x += 4f;
-            Instantiate(itemToSpawn, xd, Quaternion.identity);
-        }
+        instance = this;
+    }
+    public void SpawnItemOnMap(GameObject itemToSpawn)
+    {
+        Vector3 spawnPosition = player.transform.position;
+        spawnPosition.x += 4f;
+        Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
     }
 }

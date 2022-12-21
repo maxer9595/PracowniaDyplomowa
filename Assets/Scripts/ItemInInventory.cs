@@ -33,5 +33,9 @@ public class ItemInInventory : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         transform.SetParent(afterParent);
         itemImage.raycastTarget = true;
     }
+    public Item pushItem()
+    {
+        return item;
+    }
 
 }

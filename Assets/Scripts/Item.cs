@@ -10,6 +10,7 @@ public class Item : ScriptableObject
     [SerializeField] public float actionValue;
     public Vector3Int range = new Vector3Int(1, 1, 1);
     // public bool 
+    public GameObject asset;
 }
 
 public enum itemType

@@ -17,3 +17,4 @@ MonoBehaviour:
   itemType: 1
   actionValue: 10
   range: {x: 1, y: 1, z: 1}
+  asset: {fileID: 7558700942203849112, guid: f8c6788d901266545828be8750a0c64a, type: 3}
