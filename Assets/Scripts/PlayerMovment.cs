@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class PlayerMovment : MonoBehaviour
 {
+    public GameObject eq;
     [SerializeField] float movmentSpeed = 10f;
     [SerializeField] float sprintSpeed = 15f;
     [SerializeField] float jumpHeight = 5f;
     Rigidbody rb;
     bool isJumping = false;
     bool isSprinting = false;
+    bool isEqVisible = false;
     float playerSpeed;
 
     // Start is called before the first frame update
@@ -17,15 +18,37 @@ public class PlayerMovment : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerSpeed = movmentSpeed;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Moving();
         Jumping();
         Sprinting();
+        ShowEq();
+    }
+
+    private void ShowEq()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (isEqVisible)
+            {
+                eq.SetActive(false);
+                isEqVisible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                GetComponent<RotatePlayer>().enabled = true;
+            }
+            else
+            {
+                eq.SetActive(true);
+                isEqVisible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+                GetComponent<RotatePlayer>().enabled = false;
+            }
+        }
     }
 
     private void Sprinting()
