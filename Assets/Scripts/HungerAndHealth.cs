@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Hunger : MonoBehaviour
+public class HungerAndHealth : MonoBehaviour
 {
+    public static HungerAndHealth instance;
     public Slider HungerBar;
     public Slider HealthBar;
 
@@ -19,6 +18,10 @@ public class Hunger : MonoBehaviour
     bool isJumping;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         hunger = maxHunger;
@@ -36,8 +39,6 @@ public class Hunger : MonoBehaviour
         {
             HealthBar.value -= hungerDamage * Time.deltaTime;
         }
-
-
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -70,5 +71,9 @@ public class Hunger : MonoBehaviour
         {
             hunger = 100f;
         }
+    }
+    public void GetDamage(float damage)
+    {
+        HealthBar.value -= damage;
     }
 }

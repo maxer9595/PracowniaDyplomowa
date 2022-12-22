@@ -7,7 +7,6 @@ public class EqManager : MonoBehaviour
     public Slot[] slots;
     public GameObject itemPrefab;
     int focusedSlot = -1;
-    public Hunger hunger;
     private void Awake()
     {
         instance = this;
@@ -80,7 +79,7 @@ public class EqManager : MonoBehaviour
     {
         if (slotValue.item.itemType == itemType.Food)
         {
-            hunger.Eating(slotValue.item.actionValue);
+            HungerAndHealth.instance.Eating(slotValue.item.actionValue);
             slotValue.count--;
             if (slotValue.count <= 0)
             {
@@ -94,7 +93,11 @@ public class EqManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            EatAndDestroy(GetSlotValue());
+            ItemInInventory slot = GetSlotValue();
+            if (slot != null)
+            {
+                EatAndDestroy(slot);
+            }
         }
     }
 }
