@@ -16,5 +16,7 @@ public class Item : ScriptableObject
 public enum itemType
 {
     Weapon,
-    Food
+    Food,
+    Watch,
+    Suit
 }

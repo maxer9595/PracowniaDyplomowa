@@ -53,26 +53,25 @@ public class EqManager : MonoBehaviour
             ItemInInventory slotValue = slot.GetComponentInChildren<ItemInInventory>();
             if (slotValue == null)
             {
-                ItemSpawner(item, slot);
+                EqItemSpawner(item, slot);
                 return true;
             }
         }
         return false;
     }
-    void ItemSpawner(Item item, Slot slot)
+    void EqItemSpawner(Item item, Slot slot)
     {
         GameObject newItem = Instantiate(itemPrefab, slot.transform);
         ItemInInventory itemInInventory = newItem.GetComponent<ItemInInventory>();
         itemInInventory.CreateItem(item);
     }
-    public Item GetItem()
+    public ItemInInventory GetSlotValue()
     {
         Slot slot = slots[focusedSlot];
         ItemInInventory slotValue = slot.GetComponentInChildren<ItemInInventory>();
         if (slotValue != null)
         {
-            EatAndDestroy(slotValue);
-            return slotValue.item;
+            return slotValue;
         }
         return null;
     }
@@ -93,9 +92,9 @@ public class EqManager : MonoBehaviour
 
     public void useItem()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            GetItem();
+            EatAndDestroy(GetSlotValue());
         }
     }
 }
