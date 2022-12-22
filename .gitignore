@@ -93,3 +93,6 @@ UserSettings/Layouts/default-2021.dwlt
 .vscode/settings.json
 UserSettings
 
+ProjectSettings/Packages/com.unity.polybrush/Settings.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
