@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 6729327849591258519}
   - component: {fileID: 6729327849591258516}
   - component: {fileID: 6729327849591258517}
+  - component: {fileID: 1263391519}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +98,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6729327849591258526}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -131,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96489fc239d2e2b4cb69c97589953a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eq: {fileID: 0}
   movmentSpeed: 10
   sprintSpeed: 15
   jumpHeight: 5
@@ -148,6 +150,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sens: 500
   Camera: {fileID: 6729327851057241090}
+--- !u!114 &1263391519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729327849591258526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6122460a4e66f224aa8fdf36a9f028d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HungerBar: {fileID: 0}
+  HealthBar: {fileID: 0}
+  hungerSpeed: 1
+  hungerSprintSpeed: 2
+  hungerJumpSpeed: 1
+  hungerDamage: 1
 --- !u!1 &6729327851057241091
 GameObject:
   m_ObjectHideFlags: 0

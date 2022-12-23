@@ -11,13 +11,10 @@ public class ItemController : MonoBehaviour
         {
             bool isAdded = EqManager.instance.AddItem(item);
             if (isAdded) { Collect(); }
-            Debug.Log(other.gameObject.tag);
-
         }
     }
     private void Collect()
     {
         Destroy(gameObject);
-        Debug.Log("Collected");
     }
 }
