@@ -92,7 +92,6 @@ UnityUwmLab/.gitignore at master · maxer9595/UnityUwmLab
 UserSettings/Layouts/default-2021.dwlt
 .vscode/settings.json
 UserSettings
-
 ProjectSettings/Packages/com.unity.polybrush/Settings.json
 ProjectSettings/Packages/com.unity.probuilder/Settings.json
 ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json

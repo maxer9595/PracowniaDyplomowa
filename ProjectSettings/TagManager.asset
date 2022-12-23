@@ -7,6 +7,8 @@ TagManager:
   - PlayerCollider
   - DropItem
   - Triggered
+  - Inventory
+
   layers:
   - Default
   - TransparentFX
