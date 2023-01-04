@@ -6,7 +6,11 @@ public class EqManager : MonoBehaviour
     public static EqManager instance;
     public Slot[] slots;
     public GameObject itemPrefab;
-    int focusedSlot = -1;
+    public GameObject hand;
+    public GameObject newItem;
+
+    public int focusedSlot = -1;
+    int lastSlot = -1;
     private void Awake()
     {
         instance = this;
@@ -32,8 +36,30 @@ public class EqManager : MonoBehaviour
             }
         }
     }
+    public void SlotMenager()
+    {
+        ItemInInventory slotValue = slots[focusedSlot].GetComponentInChildren<ItemInInventory>();
 
+        if (lastSlot >= 0)
+        {
+            ItemInInventory LastSlotValue = slots[lastSlot].GetComponentInChildren<ItemInInventory>();
+            if ((LastSlotValue != null && slotValue == null) || (LastSlotValue != null && slotValue != null))
+            {
+                Destroy(newItem);
+            }
+        }
+        if (slotValue != null)
+        {
+            if (slotValue.item.itemType == itemType.Weapon)
+            {
+                newItem = Instantiate(slotValue.item.asset, hand.transform);
+                newItem.tag = "EquippedWeapon";
+                Collider col = newItem.GetComponent<Collider>();
+                col.isTrigger = true;
+            }
+        }
 
+    }
     void ChangeFocusOnSlot(int newValue)
     {
         if (focusedSlot >= 0)
@@ -41,7 +67,9 @@ public class EqManager : MonoBehaviour
             slots[focusedSlot].Unfocus();
         }
         slots[newValue].Focus();
+        lastSlot = focusedSlot;
         focusedSlot = newValue;
+        SlotMenager();
     }
 
     public bool AddItem(Item item)

@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public Rigidbody rb;
     float distanceFromPlayer;
     float timer = 0.1f;
+    float timeWithoutCollision = 0f;
+    bool isFighting = false;
     public GameObject enemyObject;
 
     private void OnDrawGizmosSelected()
@@ -25,9 +27,17 @@ public class Enemy : MonoBehaviour
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
         DetectAndFollow(distanceFromPlayer);
         Atack();
-        if (Input.GetKeyDown(KeyCode.P))
+        if (enemyHealth <= 0)
         {
             KillEnemy();
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "EquippedWeapon")
+        {
+            enemyHealth -= 5;
+            //POPRSAIWĆ 
         }
     }
 
@@ -36,17 +46,29 @@ public class Enemy : MonoBehaviour
         if (distanceFromPlayer < enemyAtackRange)
         {
             timer -= Time.deltaTime;
-
+            timeWithoutCollision = 0f;
             if (timer <= 0f)
             {
                 HungerAndHealth.instance.GetDamage(enemyStrength);
                 timer = enemyAtackSpeed;
+                isFighting = true;
             }
         }
-        // else
-        // {
-        //     timer = enemyAtackSpeed;
-        // }
+        else
+        {
+            if (isFighting)
+            {
+                timeWithoutCollision += Time.deltaTime;
+                if (timeWithoutCollision >= 5f)
+                {
+                    timer = 0.1f;
+                }
+                else
+                {
+                    timer = enemyAtackSpeed;
+                }
+            }
+        }
     }
 
     private void DetectAndFollow(float distanceFromPlayer)

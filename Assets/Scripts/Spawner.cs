@@ -17,4 +17,5 @@ public class Spawner : MonoBehaviour
         spawnPosition.x += 4f;
         Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
     }
+
 }
