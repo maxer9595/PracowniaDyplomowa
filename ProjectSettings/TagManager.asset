@@ -8,12 +8,13 @@ TagManager:
   - DropItem
   - Triggered
   - Inventory
-
+  - Weapon
+  - EquippedWeapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - IgnoreItems
+  - 
   - Water
   - UI
   - 
