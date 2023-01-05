@@ -32,12 +32,15 @@ public class Enemy : MonoBehaviour
             KillEnemy();
         }
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EquippedWeapon")
         {
             enemyHealth -= 5;
-            //POPRSAIWĆ 
+            Vector3 pos = (transform.position - other.transform.position).normalized;
+            rb.AddForce(pos * 15f, ForceMode.Impulse);
+            Debug.Log("HIT");
+            Debug.Log(other.name);
         }
     }
 

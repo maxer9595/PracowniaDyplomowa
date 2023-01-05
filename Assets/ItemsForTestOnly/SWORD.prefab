@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 0d412726f7582ce44a3d3aeff20ea61c, type: 2}
+  animationSpeed: 0.3
 --- !u!95 &1602382818500318220
 Animator:
   serializedVersion: 4

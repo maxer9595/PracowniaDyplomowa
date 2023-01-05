@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6f295358355274db593be90e1e54df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 30
+  enemyHealth: 3000
   enemyStrength: 10
   enemyRadius: 10
   enemyAtackRange: 4.5
@@ -3781,10 +3781,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BLADE
       objectReference: {fileID: 0}
-    - target: {fileID: 7534173450356296607, guid: c34c7aee568e9254fad0a669efe4a4f2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 70230711d3405cf44a0bb43594389a4f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c34c7aee568e9254fad0a669efe4a4f2, type: 3}
 --- !u!1001 &1374477366
