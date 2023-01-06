@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6fac4e39926fd9c4ca2ba4416160a857, type: 3}
   itemType: 1
   actionValue: 10
-  range: {x: 1, y: 1, z: 1}
+  range: 2
   asset: {fileID: 7558700942203849112, guid: f8c6788d901266545828be8750a0c64a, type: 3}

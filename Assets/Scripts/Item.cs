@@ -8,8 +8,7 @@ public class Item : ScriptableObject
     [SerializeField] public Sprite icon;
     public itemType itemType;
     [SerializeField] public float actionValue;
-    public Vector3Int range = new Vector3Int(1, 1, 1);
-    // public bool 
+    public float range = 1.5f;
     public GameObject asset;
 }
 

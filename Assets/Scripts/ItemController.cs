@@ -4,20 +4,21 @@ using System.Collections;
 public class ItemController : MonoBehaviour
 {
     public Item item;
+    GameObject player;
     [SerializeField] float animationSpeed = 0.3f;
     public bool isAttacking = false;
+    float distanceFromPlayer;
     private void Start()
     {
         Collider col = this.GetComponent<Collider>();
+        col.enabled = false;
+        player = EqManager.instance.player;
     }
     private void Update()
     {
-        Collider col = this.GetComponent<Collider>();
+        distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
         AttackContrroller();
-        if (this.gameObject.tag == "EquippedWeapon")
-        {
-
-        }
+        DetectItem(distanceFromPlayer);
     }
 
     private void AttackContrroller()
@@ -38,29 +39,35 @@ public class ItemController : MonoBehaviour
         yield return new WaitForSeconds(animationSpeed);
         col.enabled = false;
     }
-
-    private void OnCollisionEnter(Collision other)
+    private void DetectItem(float distanceFromPlayer)
     {
-        if (other.gameObject.tag == "Player" && this.gameObject.tag != "EquippedWeapon")
+
+        if (distanceFromPlayer < item.range && this.gameObject.tag != "EquippedWeapon")
         {
-            ItemInInventory slotValue = EqManager.instance.slots[EqManager.instance.focusedSlot].GetComponentInChildren<ItemInInventory>();
-            if (slotValue == null)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                bool isAdded = EqManager.instance.AddItem(item);
-                if (isAdded) { Collect(); }
-                EqManager.instance.SlotMenager();
+                ItemInInventory slotValue = EqManager.instance.slots[EqManager.instance.focusedSlot].GetComponentInChildren<ItemInInventory>();
+                if (slotValue == null)
+                {
+                    bool isAdded = EqManager.instance.AddItem(item);
+                    if (isAdded) { Collect(); }
+                    EqManager.instance.SlotMenager();
+                }
+                else
+                {
+                    bool isAdded = EqManager.instance.AddItem(item);
+                    if (isAdded) { Collect(); }
+                }
             }
-            else
-            {
-                bool isAdded = EqManager.instance.AddItem(item);
-                if (isAdded) { Collect(); }
-            }
-
-
         }
     }
     private void Collect()
     {
         Destroy(gameObject);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, item.range);
     }
 }

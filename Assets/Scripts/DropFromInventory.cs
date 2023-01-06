@@ -10,6 +10,6 @@ public class DropFromInventory : MonoBehaviour, IDropHandler
         ItemInInventory itemInInventory = dropped.GetComponent<ItemInInventory>();
         Spawner.instance.SpawnItemOnMap(itemInInventory.pushItem().asset);
         Destroy(dropped);
-
+        EqManager.instance.SlotMenager();
     }
 }

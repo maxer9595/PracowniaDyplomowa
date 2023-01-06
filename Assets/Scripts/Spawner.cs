@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -14,7 +12,8 @@ public class Spawner : MonoBehaviour
     public void SpawnItemOnMap(GameObject itemToSpawn)
     {
         Vector3 spawnPosition = player.transform.position;
-        spawnPosition.x += 4f;
+        float itemY = itemToSpawn.transform.lossyScale.y;
+        spawnPosition.y = itemY / 2;
         Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
     }
 

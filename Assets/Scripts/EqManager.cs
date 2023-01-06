@@ -8,6 +8,7 @@ public class EqManager : MonoBehaviour
     public GameObject itemPrefab;
     public GameObject hand;
     public GameObject newItem;
+    public GameObject player;
 
     public int focusedSlot = -1;
     int lastSlot = -1;
@@ -43,7 +44,7 @@ public class EqManager : MonoBehaviour
         if (lastSlot >= 0)
         {
             ItemInInventory LastSlotValue = slots[lastSlot].GetComponentInChildren<ItemInInventory>();
-            if ((LastSlotValue != null && slotValue == null) || (LastSlotValue != null && slotValue != null))
+            if ((LastSlotValue != null && slotValue == null) || (LastSlotValue != null && slotValue != null) || slotValue == null)
             {
                 Destroy(newItem);
             }
@@ -119,7 +120,7 @@ public class EqManager : MonoBehaviour
 
     public void useItem()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             ItemInInventory slot = GetSlotValue();
             if (slot != null)
