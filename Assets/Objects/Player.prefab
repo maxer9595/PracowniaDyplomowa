@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1692603145248318963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4143184013633590862}
+  m_Layer: 0
+  m_Name: ItemHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4143184013633590862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692603145248318963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6729327851057241090}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4311113248090896230
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,8 +54,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4311113248090896230}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.4309518, y: -0.001686655, z: 0.08011933, w: 0.89880955}
+  m_LocalPosition: {x: 0.52999973, y: -0.11399996, z: 0.841}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,6 +78,7 @@ GameObject:
   - component: {fileID: 6729327849591258516}
   - component: {fileID: 6729327849591258517}
   - component: {fileID: 1263391519}
+  - component: {fileID: 1532795128}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -195,10 +227,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HungerBar: {fileID: 0}
   HealthBar: {fileID: 0}
+  suitSlot: {fileID: 0}
   hungerSpeed: 1
   hungerSprintSpeed: 2
   hungerJumpSpeed: 1
   hungerDamage: 1
+--- !u!114 &1532795128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729327849591258526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc159920156578a4787398590377d7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelDraw: 0
 --- !u!1 &6729327851057241091
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1335970976470664995}
+  - {fileID: 4143184013633590862}
   m_Father: {fileID: 6729327849591258514}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

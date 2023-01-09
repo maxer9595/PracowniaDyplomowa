@@ -6,19 +6,24 @@ public class ItemController : MonoBehaviour
     public Item item;
     GameObject player;
     [SerializeField] float animationSpeed = 0.3f;
-    public bool isAttacking = false;
+
     float distanceFromPlayer;
+    bool showLabel;
     private void Start()
     {
         Collider col = this.GetComponent<Collider>();
         col.enabled = false;
         player = EqManager.instance.player;
+
     }
     private void Update()
     {
+        ShowItemLabel showItemLabel = player.GetComponent<ShowItemLabel>();
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
         AttackContrroller();
         DetectItem(distanceFromPlayer);
+        showItemLabel.labelDraw = showLabel;
+
     }
 
     private void AttackContrroller()
@@ -42,7 +47,7 @@ public class ItemController : MonoBehaviour
     private void DetectItem(float distanceFromPlayer)
     {
 
-        if (distanceFromPlayer < item.range && this.gameObject.tag != "EquippedWeapon")
+        if (distanceFromPlayer < item.range && this.gameObject.tag != "EquippedWeapon" && this.gameObject.tag != "EquippedItem")
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -59,6 +64,11 @@ public class ItemController : MonoBehaviour
                     if (isAdded) { Collect(); }
                 }
             }
+            showLabel = true;
+        }
+        else
+        {
+            showLabel = false;
         }
     }
     private void Collect()
