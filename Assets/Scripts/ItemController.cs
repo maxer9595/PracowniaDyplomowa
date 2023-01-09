@@ -19,8 +19,14 @@ public class ItemController : MonoBehaviour
     private void Update()
     {
         ShowItemLabel showItemLabel = player.GetComponent<ShowItemLabel>();
+        PlayerMovment playerMovment = player.GetComponent<PlayerMovment>();
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
-        AttackContrroller();
+
+        if (!playerMovment.isEqVisible)
+        {
+            AttackContrroller();
+        }
+
         DetectItem(distanceFromPlayer);
         showItemLabel.labelDraw = showLabel;
 

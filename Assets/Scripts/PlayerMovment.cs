@@ -10,7 +10,7 @@ public class PlayerMovment : MonoBehaviour
     Rigidbody rb;
     bool isJumping = false;
     bool isSprinting = false;
-    bool isEqVisible = false;
+    public bool isEqVisible = false;
     float playerSpeed;
 
     // Start is called before the first frame update
@@ -24,9 +24,19 @@ public class PlayerMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Moving();
-        Jumping();
-        Sprinting();
+        if (!isEqVisible)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.freezeRotation = true;
+            Moving();
+            Jumping();
+            Sprinting();
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        }
         ShowEq();
     }
 
