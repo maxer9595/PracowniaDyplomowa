@@ -6,11 +6,14 @@ public class EqManager : MonoBehaviour
     public static EqManager instance;
     public Slot[] slots;
     public GameObject itemPrefab;
-    public GameObject hand;
+    public GameObject WeaponHand;
+    public GameObject ItemHand;
     public GameObject newItem;
+    public GameObject player;
 
     public int focusedSlot = -1;
     int lastSlot = -1;
+    float timer = 1.5f;
     private void Awake()
     {
         instance = this;
@@ -38,12 +41,12 @@ public class EqManager : MonoBehaviour
     }
     public void SlotMenager()
     {
-        ItemInInventory slotValue = slots[focusedSlot].GetComponentInChildren<ItemInInventory>();
+        ItemInInventory slotValue = GetSlotValue();
 
         if (lastSlot >= 0)
         {
             ItemInInventory LastSlotValue = slots[lastSlot].GetComponentInChildren<ItemInInventory>();
-            if ((LastSlotValue != null && slotValue == null) || (LastSlotValue != null && slotValue != null))
+            if ((LastSlotValue != null && slotValue == null) || (LastSlotValue != null && slotValue != null) || slotValue == null)
             {
                 Destroy(newItem);
             }
@@ -52,10 +55,15 @@ public class EqManager : MonoBehaviour
         {
             if (slotValue.item.itemType == itemType.Weapon)
             {
-                newItem = Instantiate(slotValue.item.asset, hand.transform);
+                newItem = Instantiate(slotValue.item.asset, WeaponHand.transform);
                 newItem.tag = "EquippedWeapon";
                 Collider col = newItem.GetComponent<Collider>();
                 col.isTrigger = true;
+            }
+            else
+            {
+                newItem = Instantiate(slotValue.item.asset, ItemHand.transform);
+                newItem.tag = "EquippedItem";
             }
         }
 
@@ -94,37 +102,42 @@ public class EqManager : MonoBehaviour
     }
     public ItemInInventory GetSlotValue()
     {
-        Slot slot = slots[focusedSlot];
-        ItemInInventory slotValue = slot.GetComponentInChildren<ItemInInventory>();
-        if (slotValue != null)
-        {
-            return slotValue;
-        }
-        return null;
+        ItemInInventory slotValue = slots[focusedSlot].GetComponentInChildren<ItemInInventory>();
+        return slotValue;
     }
 
-    private void EatAndDestroy(ItemInInventory slotValue)
+    private void UseAndDestroy(ItemInInventory slotValue)
     {
         if (slotValue.item.itemType == itemType.Food)
         {
             HungerAndHealth.instance.Eating(slotValue.item.actionValue);
-            slotValue.count--;
-            if (slotValue.count <= 0)
-            {
-                Destroy(slotValue.gameObject);
-            }
-
+            Destroy(slotValue.gameObject);
+            Destroy(newItem);
         }
+        else if (slotValue.item.itemType == itemType.Health)
+        {
+            HungerAndHealth.instance.Healing(slotValue.item.actionValue);
+            Destroy(slotValue.gameObject);
+            Destroy(newItem);
+        }
+
     }
 
     public void useItem()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButton(1))
         {
             ItemInInventory slot = GetSlotValue();
             if (slot != null)
             {
-                EatAndDestroy(slot);
+                timer -= Time.deltaTime;
+                if (timer <= 0f)
+                {
+                    UseAndDestroy(slot);
+                    timer = 1.5f;
+                }
+                Debug.Log(timer);
+
             }
         }
     }

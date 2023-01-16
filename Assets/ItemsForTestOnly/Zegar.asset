@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d65d286ae9a074489cb5206447700b, type: 3}
+  m_Name: Zegar
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  actionValue: 50
+  range: 1.5
+  asset: {fileID: 1725257033525486772, guid: 0840516a9001fc845aaa096b5a2a7c39, type: 3}
+  itemType: 2
+  watchBoost: 2

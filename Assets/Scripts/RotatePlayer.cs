@@ -5,13 +5,7 @@ public class RotatePlayer : MonoBehaviour
     [SerializeField] float sens = 250f;
     public Transform Camera;
     float cameraRotation = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float y = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;

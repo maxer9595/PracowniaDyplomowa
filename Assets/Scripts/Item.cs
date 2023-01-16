@@ -3,14 +3,12 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     [Header("General info")]
-
-    [SerializeField] public string itemName;
     [SerializeField] public Sprite icon;
-    public itemType itemType;
     [SerializeField] public float actionValue;
-    public Vector3Int range = new Vector3Int(1, 1, 1);
-    // public bool 
+    public float range = 1.5f;
     public GameObject asset;
+    public itemType itemType;
+    public watchBoost watchBoost;
 }
 
 public enum itemType
@@ -18,5 +16,13 @@ public enum itemType
     Weapon,
     Food,
     Watch,
-    Suit
+    Suit,
+    Health
+}
+public enum watchBoost
+{
+    None,
+    Speed,
+    Health,
+    Hunger
 }
