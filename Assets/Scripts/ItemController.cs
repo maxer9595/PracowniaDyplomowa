@@ -18,7 +18,6 @@ public class ItemController : MonoBehaviour
     }
     private void Update()
     {
-        ShowItemLabel showItemLabel = player.GetComponent<ShowItemLabel>();
         PlayerMovment playerMovment = player.GetComponent<PlayerMovment>();
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
@@ -28,8 +27,6 @@ public class ItemController : MonoBehaviour
         }
 
         DetectItem(distanceFromPlayer);
-        showItemLabel.labelDraw = showLabel;
-
     }
 
     private void AttackContrroller()
@@ -52,6 +49,7 @@ public class ItemController : MonoBehaviour
     }
     private void DetectItem(float distanceFromPlayer)
     {
+        ShowItemLabel showItemLabel = player.GetComponent<ShowItemLabel>();
 
         if (distanceFromPlayer < item.range && this.gameObject.tag != "EquippedWeapon" && this.gameObject.tag != "EquippedItem")
         {
@@ -70,11 +68,7 @@ public class ItemController : MonoBehaviour
                     if (isAdded) { Collect(); }
                 }
             }
-            showLabel = true;
-        }
-        else
-        {
-            showLabel = false;
+            showItemLabel.TestedGui();
         }
     }
     private void Collect()

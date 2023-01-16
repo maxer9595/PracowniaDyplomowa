@@ -9,18 +9,17 @@ public class HungerAndHealth : MonoBehaviour
     public Slider HungerBar;
     public Slider HealthBar;
     public SuitSlot suitSlot;
-
-    [SerializeField] float hungerSpeed = 1f;
-    [SerializeField] float hungerSprintSpeed = 2f;
-    [SerializeField] float hungerJumpSpeed = 1f;
+    public WatchSlot watchslot;
+    public float hungerSpeed = 1f;
+    public float hungerSprintSpeed = 2f;
+    public float hungerJumpSpeed = 1f;
     [SerializeField] float hungerDamage = 1f;
-    float maxHealth = 100f;
+    public float maxHealth = 100f;
     float maxHunger = 100f;
     float hunger;
     bool isJumping;
     float damageReduction;
 
-    // Start is called before the first frame update
     private void Awake()
     {
         instance = this;
@@ -28,6 +27,8 @@ public class HungerAndHealth : MonoBehaviour
     void Start()
     {
         hunger = maxHunger;
+        HungerBar.maxValue = maxHunger;
+
         HealthBar.value = maxHealth;
     }
 
@@ -58,16 +59,16 @@ public class HungerAndHealth : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            hunger -= hungerSprintSpeed * Time.deltaTime;
+            hunger -= hungerSprintSpeed * Time.deltaTime * watchslot.hungerReduction;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            hunger -= hungerJumpSpeed;
+            hunger -= hungerJumpSpeed * watchslot.hungerReduction;
             isJumping = true;
         }
         else
         {
-            hunger -= hungerSpeed * Time.deltaTime;
+            hunger -= hungerSpeed * Time.deltaTime * watchslot.hungerReduction;
         }
     }
     public void Eating(float value)
@@ -82,9 +83,9 @@ public class HungerAndHealth : MonoBehaviour
     public void Healing(float value)
     {
         HealthBar.value += value;
-        if (HealthBar.value > maxHealth)
+        if (HealthBar.value > HealthBar.maxValue)
         {
-            HealthBar.value = maxHealth;
+            HealthBar.value = HealthBar.maxValue;
         }
     }
 

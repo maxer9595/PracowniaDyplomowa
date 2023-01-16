@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a0d6a6b0561c44b933ced0e4208e73, type: 3}
-  m_Name: New Watch
+  m_Script: {fileID: 11500000, guid: d7d65d286ae9a074489cb5206447700b, type: 3}
+  m_Name: Zegar
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  itemType: 2
-  actionValue: 0
+  icon: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  actionValue: 50
   range: 1.5
-  asset: {fileID: 0}
-  watchBoost: 0
+  asset: {fileID: 1725257033525486772, guid: 0840516a9001fc845aaa096b5a2a7c39, type: 3}
+  itemType: 2
+  watchBoost: 2

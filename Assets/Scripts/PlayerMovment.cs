@@ -4,24 +4,21 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     public GameObject eq;
-    [SerializeField] float movmentSpeed = 10f;
-    [SerializeField] float sprintSpeed = 15f;
+    public WatchSlot watchslot;
+    public float movmentSpeed = 10f;
+    public float sprintSpeed = 15f;
     [SerializeField] float jumpHeight = 5f;
     Rigidbody rb;
     bool isJumping = false;
-    bool isSprinting = false;
     public bool isEqVisible = false;
     float playerSpeed;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerSpeed = movmentSpeed;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (!isEqVisible)
@@ -46,10 +43,12 @@ public class PlayerMovment : MonoBehaviour
         {
             if (isEqVisible)
             {
+
                 eq.SetActive(false);
                 isEqVisible = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 GetComponent<RotatePlayer>().enabled = true;
+                watchslot.BoostMenager();
             }
             else
             {
@@ -63,21 +62,13 @@ public class PlayerMovment : MonoBehaviour
 
     private void Sprinting()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !isJumping)
         {
-            isSprinting = true;
+            playerSpeed = sprintSpeed * watchslot.sprintBoost;
         }
         else
         {
-            isSprinting = false;
-        }
-        if (isSprinting && !isJumping)
-        {
-            playerSpeed = sprintSpeed;
-        }
-        else
-        {
-            playerSpeed = movmentSpeed;
+            playerSpeed = movmentSpeed * watchslot.sprintBoost;
         }
     }
 

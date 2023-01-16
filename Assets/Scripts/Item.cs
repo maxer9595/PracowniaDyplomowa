@@ -4,10 +4,11 @@ public class Item : ScriptableObject
 {
     [Header("General info")]
     [SerializeField] public Sprite icon;
-    public itemType itemType;
     [SerializeField] public float actionValue;
     public float range = 1.5f;
     public GameObject asset;
+    public itemType itemType;
+    public watchBoost watchBoost;
 }
 
 public enum itemType
@@ -17,4 +18,11 @@ public enum itemType
     Watch,
     Suit,
     Health
+}
+public enum watchBoost
+{
+    None,
+    Speed,
+    Health,
+    Hunger
 }

@@ -4031,7 +4031,7 @@ PrefabInstance:
     - target: {fileID: 5014330353587921405, guid: c71389f834ed46640b0f2d22a2a48c7f, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 11ea1ed80bf23f548bd59661a929f4a4, type: 2}
+      objectReference: {fileID: 11400000, guid: 623a92fc585b3704a8dfc877eb553fb2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c71389f834ed46640b0f2d22a2a48c7f, type: 3}
 --- !u!1001 &1480141516
@@ -4279,30 +4279,10 @@ PrefabInstance:
       propertyPath: HungerBar
       value: 
       objectReference: {fileID: 275268049}
-    - target: {fileID: 4143184013633590862, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143184013633590862, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143184013633590862, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143184013633590862, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.551
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143184013633590862, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.324
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143184013633590862, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.573
-      objectReference: {fileID: 0}
+    - target: {fileID: 1263391519, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
+      propertyPath: watchslot
+      value: 
+      objectReference: {fileID: 2133579697}
     - target: {fileID: 6729327849591258514, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -4351,10 +4331,10 @@ PrefabInstance:
       propertyPath: eq
       value: 
       objectReference: {fileID: 548098046}
-    - target: {fileID: 6729327849591258519, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
+    - target: {fileID: 6729327849591258516, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
+      propertyPath: watchslot
+      value: 
+      objectReference: {fileID: 2133579697}
     - target: {fileID: 6729327849591258526, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5946,6 +5926,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1c9b1a5f37f05479e42c64f447eec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 651335142}
+  sprintBoost: 1
+  hungerReduction: 1
+  healthValue: 1
 --- !u!114 &2133579698
 MonoBehaviour:
   m_ObjectHideFlags: 0

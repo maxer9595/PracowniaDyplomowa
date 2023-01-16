@@ -1,11 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowItemLabel : MonoBehaviour
 {
-    [HideInInspector] public bool labelDraw = false;
+    bool labelDraw = false;
     GUIStyle style = new GUIStyle();
+    private void Update()
+    {
+        labelDraw = false;
+    }
+    public void TestedGui()
+    {
+        labelDraw = true;
+    }
+
     void OnGUI()
     {
         style.fontSize = 30;
