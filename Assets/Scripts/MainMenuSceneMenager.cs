@@ -13,7 +13,7 @@ public class MainMenuSceneMenager : MonoBehaviour
     }
     public void OptionsScene()
     {
-        // SceneManager.LoadScene("OptionsScene");
+        SceneManager.LoadScene("SettingsScene");
     }
     public void CreditsScene()
     {
