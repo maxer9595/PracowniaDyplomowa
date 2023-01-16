@@ -9,7 +9,15 @@ public class MainMenuSceneMenager : MonoBehaviour
     }
     public void HowToPlayScene()
     {
-        // SceneManager.LoadScene("HowToPlayScene");
+        SceneManager.LoadScene("HowToPlayScene");
+    }
+    public void OptionsScene()
+    {
+        // SceneManager.LoadScene("OptionsScene");
+    }
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene("CreditsScene");
     }
     public void ExitGame()
     {
