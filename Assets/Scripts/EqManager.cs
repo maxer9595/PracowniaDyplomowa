@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class EqManager : MonoBehaviour
 {
     public static EqManager instance;
     public Slot[] slots;
-    [HideInInspector] public GameObject itemPrefab;
+    public GameObject itemPrefab;
     public GameObject WeaponHand;
     public GameObject ItemHand;
     [HideInInspector] public GameObject newItem;
@@ -59,11 +60,13 @@ public class EqManager : MonoBehaviour
                 newItem.tag = "EquippedWeapon";
                 Collider col = newItem.GetComponent<Collider>();
                 col.isTrigger = true;
+                newItem.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
             }
             else
             {
                 newItem = Instantiate(slotValue.item.asset, ItemHand.transform);
                 newItem.tag = "EquippedItem";
+                newItem.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
             }
         }
 
