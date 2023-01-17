@@ -53,6 +53,7 @@ public class ItemController : MonoBehaviour
 
         if (distanceFromPlayer < item.range && this.gameObject.tag != "EquippedWeapon" && this.gameObject.tag != "EquippedItem")
         {
+            showItemLabel.ShowLabelOnGui();
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ItemInInventory slotValue = EqManager.instance.slots[EqManager.instance.focusedSlot].GetComponentInChildren<ItemInInventory>();
@@ -68,7 +69,6 @@ public class ItemController : MonoBehaviour
                     if (isAdded) { Collect(); }
                 }
             }
-            showItemLabel.TestedGui();
         }
     }
     private void Collect()

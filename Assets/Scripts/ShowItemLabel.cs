@@ -8,7 +8,7 @@ public class ShowItemLabel : MonoBehaviour
     {
         labelDraw = false;
     }
-    public void TestedGui()
+    public void ShowLabelOnGui()
     {
         labelDraw = true;
     }
