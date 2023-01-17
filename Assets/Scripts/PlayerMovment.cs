@@ -10,7 +10,7 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] float jumpHeight = 5f;
     Rigidbody rb;
     bool isJumping = false;
-    public bool isEqVisible = false;
+    [HideInInspector] public bool isEqVisible = false;
     float playerSpeed;
 
     void Start()
