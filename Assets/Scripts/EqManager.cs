@@ -5,10 +5,10 @@ public class EqManager : MonoBehaviour
 {
     public static EqManager instance;
     public Slot[] slots;
-    public GameObject itemPrefab;
+    [HideInInspector] public GameObject itemPrefab;
     public GameObject WeaponHand;
     public GameObject ItemHand;
-    public GameObject newItem;
+    [HideInInspector] public GameObject newItem;
     public GameObject player;
 
     public int focusedSlot = -1;
