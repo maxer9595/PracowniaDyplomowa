@@ -11,6 +11,7 @@ TagManager:
   - Weapon
   - EquippedWeapon
   - EquippedItem
+  - Door
   layers:
   - Default
   - TransparentFX
