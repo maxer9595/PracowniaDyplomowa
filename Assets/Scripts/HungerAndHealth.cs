@@ -19,6 +19,7 @@ public class HungerAndHealth : MonoBehaviour
     float hunger;
     bool isJumping;
     float damageReduction;
+    float newDamage;
 
     private void Awake()
     {
@@ -93,9 +94,13 @@ public class HungerAndHealth : MonoBehaviour
     {
         if (damageReduction != 0)
         {
-            damage -= (damage / 100) * damageReduction;
+            newDamage = damage - ((damage / 100) * damageReduction);
         }
-        HealthBar.value -= damage;
+        else
+        {
+            newDamage = damage;
+        }
+        HealthBar.value -= newDamage;
     }
     public void Death()
     {
