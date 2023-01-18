@@ -6,6 +6,8 @@ public class ItemController : MonoBehaviour
     public Item item;
     GameObject player;
     [SerializeField] float animationSpeed = 0.3f;
+    bool labelDraw = false;
+    GUIStyle style = new GUIStyle();
 
     float distanceFromPlayer;
     bool showLabel;
@@ -49,11 +51,9 @@ public class ItemController : MonoBehaviour
     }
     private void DetectItem(float distanceFromPlayer)
     {
-        ShowItemLabel showItemLabel = player.GetComponent<ShowItemLabel>();
-
         if (distanceFromPlayer < item.range && this.gameObject.tag != "EquippedWeapon" && this.gameObject.tag != "EquippedItem")
         {
-            showItemLabel.ShowLabelOnGui();
+            labelDraw = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ItemInInventory slotValue = EqManager.instance.slots[EqManager.instance.focusedSlot].GetComponentInChildren<ItemInInventory>();
@@ -70,6 +70,10 @@ public class ItemController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            labelDraw = false;
+        }
     }
     private void Collect()
     {
@@ -79,5 +83,13 @@ public class ItemController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, item.range);
+    }
+    void OnGUI()
+    {
+        style.fontSize = 30;
+        if (labelDraw)
+        {
+            GUI.Label(new Rect(50, Screen.height / 2, 500, 500), "Press 'E' to pick up", style);
+        }
     }
 }

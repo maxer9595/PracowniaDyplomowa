@@ -49,6 +49,7 @@ public class PlayerMovment : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 GetComponent<RotatePlayer>().enabled = true;
                 watchslot.BoostMenager();
+                EqManager.instance.SlotMenager();
             }
             else
             {

@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 6729327849591258516}
   - component: {fileID: 6729327849591258517}
   - component: {fileID: 1263391519}
-  - component: {fileID: 1532795128}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -236,18 +235,6 @@ MonoBehaviour:
   hungerJumpSpeed: 1
   hungerDamage: 1
   maxHealth: 100
---- !u!114 &1532795128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729327849591258526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc159920156578a4787398590377d7fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6729327851057241091
 GameObject:
   m_ObjectHideFlags: 0

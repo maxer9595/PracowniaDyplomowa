@@ -13,6 +13,6 @@ public class DeathScreenMenager : MonoBehaviour
     }
     public void RestartLevel()
     {
-        SceneManager.LoadScene("TestingScene");
+        SceneManager.LoadScene("MapScene");
     }
 }
