@@ -15,4 +15,8 @@ public class DeathScreenMenager : MonoBehaviour
     {
         SceneManager.LoadScene("MapScene");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

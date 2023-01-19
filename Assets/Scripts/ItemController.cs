@@ -8,6 +8,7 @@ public class ItemController : MonoBehaviour
     [SerializeField] float animationSpeed = 0.3f;
     bool labelDraw = false;
     GUIStyle style = new GUIStyle();
+    string labeltext = "Press 'E' to pickUp";
 
     float distanceFromPlayer;
     bool showLabel;
@@ -56,23 +57,26 @@ public class ItemController : MonoBehaviour
             labelDraw = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                ItemInInventory slotValue = EqManager.instance.slots[EqManager.instance.focusedSlot].GetComponentInChildren<ItemInInventory>();
+                ItemInInventory slotValue = EqManager.instance.GetSlotValue();
                 if (slotValue == null)
                 {
                     bool isAdded = EqManager.instance.AddItem(item);
                     if (isAdded) { Collect(); }
+                    else { labeltext = "Inventory is Full"; }
                     EqManager.instance.SlotMenager();
                 }
                 else
                 {
                     bool isAdded = EqManager.instance.AddItem(item);
                     if (isAdded) { Collect(); }
+                    else { labeltext = "Inventory is Full"; }
                 }
             }
         }
         else
         {
             labelDraw = false;
+            labeltext = "Press 'E' to pickUp";
         }
     }
     private void Collect()
@@ -86,10 +90,10 @@ public class ItemController : MonoBehaviour
     }
     void OnGUI()
     {
-        style.fontSize = 30;
+        style.fontSize = 40;
         if (labelDraw)
         {
-            GUI.Label(new Rect(50, Screen.height / 2, 500, 500), "Press 'E' to pick up", style);
+            GUI.Label(new Rect(50, Screen.height / 2, 500, 500), labeltext, style);
         }
     }
 }
