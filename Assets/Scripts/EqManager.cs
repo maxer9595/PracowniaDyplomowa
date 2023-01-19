@@ -11,9 +11,7 @@ public class EqManager : MonoBehaviour
     public GameObject ItemHand;
     [HideInInspector] public GameObject newItem;
     public GameObject player;
-
     public int focusedSlot = -1;
-    int lastSlot = -1;
     float timer = 1.5f;
     private void Awake()
     {
@@ -44,34 +42,44 @@ public class EqManager : MonoBehaviour
     {
         ItemInInventory slotValue = GetSlotValue();
         ItemController itemController = ItemHand.GetComponentInChildren<ItemController>();
-
-        if (lastSlot >= 0)
+        if ((slotValue == null && itemController != null) || (slotValue != null && itemController != null))
         {
-            ItemInInventory LastSlotValue = slots[lastSlot].GetComponentInChildren<ItemInInventory>();
-            if ((LastSlotValue != null && slotValue == null) || (LastSlotValue != null && slotValue != null) || slotValue == null)
+            Destroy(itemController.gameObject);
+
+        }
+        else if (slotValue == null && itemController != null)
+        {
+            if (slotValue.item != itemController.item)
             {
-                Destroy(newItem);
+                Destroy(itemController.gameObject);
             }
         }
-        if (slotValue != null && itemController == null)
+
+        if (slotValue != null)
         {
-            if (slotValue.item.itemType == itemType.Weapon)
-            {
-                newItem = Instantiate(slotValue.item.asset, WeaponHand.transform);
-                newItem.tag = "EquippedWeapon";
-                Collider col = newItem.GetComponent<Collider>();
-                col.isTrigger = true;
-                newItem.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
-            }
-            else
-            {
-                newItem = Instantiate(slotValue.item.asset, ItemHand.transform);
-                newItem.tag = "EquippedItem";
-                newItem.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
-            }
+            AddItemToHand(slotValue);
         }
 
     }
+
+    private void AddItemToHand(ItemInInventory slotValue)
+    {
+        if (slotValue.item.itemType == itemType.Weapon)
+        {
+            newItem = Instantiate(slotValue.item.asset, WeaponHand.transform);
+            newItem.tag = "EquippedWeapon";
+            Collider col = newItem.GetComponent<Collider>();
+            col.isTrigger = true;
+            newItem.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+        }
+        else
+        {
+            newItem = Instantiate(slotValue.item.asset, ItemHand.transform);
+            newItem.tag = "EquippedItem";
+            newItem.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+        }
+    }
+
     void ChangeFocusOnSlot(int newValue)
     {
         if (focusedSlot >= 0)
@@ -79,7 +87,6 @@ public class EqManager : MonoBehaviour
             slots[focusedSlot].Unfocus();
         }
         slots[newValue].Focus();
-        lastSlot = focusedSlot;
         focusedSlot = newValue;
         SlotMenager();
     }
