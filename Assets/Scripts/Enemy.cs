@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float enemyAtackSpeed = 2f;
     public GameObject player;
     public Rigidbody rb;
+    Animator animator;
     float distanceFromPlayer;
-    float timer = 0.1f;
+    float timer = 0.3f;
     float timeWithoutCollision = 0f;
     bool isFighting = false;
-    public GameObject enemyObject;
 
     private void OnDrawGizmosSelected()
     {
@@ -79,15 +79,19 @@ public class Enemy : MonoBehaviour
 
         if ((distanceFromPlayer < enemyRadius || this.gameObject.tag == "Triggered") && distanceFromPlayer > enemyAtackRange - 1f)
         {
+            animator = this.transform.GetComponentInParent<Animator>();
             this.gameObject.tag = "Triggered";
+            animator.SetTrigger("Run");
             Vector3 playerDirection = player.transform.position - transform.position;
             rb.velocity = playerDirection.normalized * enemyMoveSpeed;
             transform.LookAt(player.transform.position);
+
+
 
         }
     }
     private void KillEnemy()
     {
-        Destroy(enemyObject);
+        Destroy(this.gameObject);
     }
 }

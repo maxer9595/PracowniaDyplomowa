@@ -12,9 +12,9 @@ public class Spawner : MonoBehaviour
     public void SpawnItemOnMap(GameObject itemToSpawn)
     {
         Vector3 spawnPosition = player.transform.position;
-        float itemY = itemToSpawn.transform.lossyScale.y;
-        spawnPosition.y = itemY / 2;
-        Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
+        float itemY = itemToSpawn.transform.position.y;
+        spawnPosition.y = spawnPosition.y - player.transform.lossyScale.y + itemY;
+        Instantiate(itemToSpawn, spawnPosition, Quaternion.Euler(-90, 0, 0));
     }
 
 }

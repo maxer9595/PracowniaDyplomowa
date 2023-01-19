@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 14475a93ab3165041a5afc589b071f0e, type: 3}
   actionValue: 0
-  range: 1.5
+  range: 2
   asset: {fileID: 2972493889453707222, guid: 4bee34c03f98bdb43ab9a7b30bcc2c09, type: 3}
   itemType: 3
   watchBoost: 0

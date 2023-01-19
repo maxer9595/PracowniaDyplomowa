@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6681793562611334814}
   - component: {fileID: 7716254143030997307}
   - component: {fileID: 5544303924555498993}
-  - component: {fileID: 6570970292832667552}
   - component: {fileID: 6570970292832667556}
+  - component: {fileID: 5430377214018684025}
   m_Layer: 0
   m_Name: medkit
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6570970292832667552
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6337039095302251556}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: fcf754e59cc2fd443bca55d775180bad, type: 3}
 --- !u!114 &6570970292832667556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +99,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 1f0240c8fc6f99e40a509c95fa31c9fd, type: 2}
   animationSpeed: 0.3
+--- !u!64 &5430377214018684025
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6337039095302251556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: fcf754e59cc2fd443bca55d775180bad, type: 3}

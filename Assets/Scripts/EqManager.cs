@@ -43,6 +43,7 @@ public class EqManager : MonoBehaviour
     public void SlotMenager()
     {
         ItemInInventory slotValue = GetSlotValue();
+        ItemController itemController = ItemHand.GetComponentInChildren<ItemController>();
 
         if (lastSlot >= 0)
         {
@@ -52,7 +53,7 @@ public class EqManager : MonoBehaviour
                 Destroy(newItem);
             }
         }
-        if (slotValue != null)
+        if (slotValue != null && itemController == null)
         {
             if (slotValue.item.itemType == itemType.Weapon)
             {
