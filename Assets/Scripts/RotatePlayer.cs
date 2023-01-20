@@ -11,11 +11,10 @@ public class RotatePlayer : MonoBehaviour
         float y = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
         float x = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
 
-        transform.Rotate(Vector3.up * x);
-
         cameraRotation -= y;
         cameraRotation = Mathf.Clamp(cameraRotation, -90f, 90f);
-        Camera.localEulerAngles = Vector3.right * cameraRotation;
+        Camera.transform.localRotation = Quaternion.Euler(cameraRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * x);
 
 
     }

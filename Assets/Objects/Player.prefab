@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692603145248318963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.551, y: -0.324, z: 0.573}
+  m_LocalRotation: {x: 0.112456664, y: 0.00039775972, z: 0.0035148703, w: 0.99365044}
+  m_LocalPosition: {x: 0.499, y: -0.192, z: 0.5}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6729327851057241090}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.914, y: 0.093, z: 0.416}
 --- !u!1 &4311113248090896230
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   watchslot: {fileID: 0}
   movmentSpeed: 10
   sprintSpeed: 15
-  jumpHeight: 5
+  jumpHeight: 3
   isEqVisible: 0
 --- !u!114 &6729327849591258517
 MonoBehaviour:
@@ -348,8 +348,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7093995077241482355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 1.05, y: 0.95, z: 1.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.05, y: 1, z: 1.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6729327849591258514}
@@ -412,7 +412,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7093995077241482355}
-  m_Material: {fileID: 13400000, guid: aeb2b70c06e5fe244ac87ff5ca63c9a9, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
