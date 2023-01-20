@@ -7,11 +7,20 @@ public class PlayerMovment : MonoBehaviour
     public WatchSlot watchslot;
     public float movmentSpeed = 10f;
     public float sprintSpeed = 15f;
-    [SerializeField] float jumpHeight = 5f;
     Rigidbody rb;
-    bool isJumping = false;
     [HideInInspector] public bool isEqVisible = false;
     float playerSpeed;
+
+    public CharacterController PlayerController;
+
+    float gravity = -15;
+    float jumpHeight = 1.2f;
+
+    public Transform floorCheck;
+    public float distanceFromFloor = 0.4f;
+    public LayerMask floorLayer;
+    Vector3 velocity;
+    bool isOnFloor;
 
     void Start()
     {
@@ -25,8 +34,7 @@ public class PlayerMovment : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.None;
             rb.freezeRotation = true;
-            Moving();
-            Jumping();
+            MovmentAndJumping();
             Sprinting();
         }
         else
@@ -35,6 +43,32 @@ public class PlayerMovment : MonoBehaviour
 
         }
         ShowEq();
+    }
+
+    private void MovmentAndJumping()
+    {
+        isOnFloor = Physics.CheckSphere(floorCheck.position, distanceFromFloor, floorLayer);
+
+        if (isOnFloor && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        PlayerController.Move(move * playerSpeed * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && isOnFloor)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+
+        PlayerController.Move(velocity * Time.deltaTime);
     }
 
     private void ShowEq()
@@ -63,7 +97,7 @@ public class PlayerMovment : MonoBehaviour
 
     private void Sprinting()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && !isJumping)
+        if (Input.GetKey(KeyCode.LeftShift) && isOnFloor)
         {
             playerSpeed = sprintSpeed * watchslot.sprintBoost;
         }
@@ -71,29 +105,5 @@ public class PlayerMovment : MonoBehaviour
         {
             playerSpeed = movmentSpeed * watchslot.sprintBoost;
         }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag != "floor")
-        {
-            isJumping = false;
-        }
-    }
-    private void Jumping()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-        {
-            rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
-            isJumping = true;
-        }
-    }
-
-    private void Moving()
-    {
-        float x = Input.GetAxis("Horizontal") * playerSpeed;
-        float z = Input.GetAxis("Vertical") * playerSpeed;
-        Vector3 changePosition = transform.right * x + transform.forward * z;
-        rb.velocity = new Vector3(changePosition.x, rb.velocity.y, changePosition.z);
     }
 }

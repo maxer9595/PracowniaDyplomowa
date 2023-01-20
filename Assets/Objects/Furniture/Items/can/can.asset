@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d65d286ae9a074489cb5206447700b, type: 3}
   m_Name: can
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 14475a93ab3165041a5afc589b071f0e, type: 3}
+  icon: {fileID: 21300000, guid: c226537d1006a2f48b6e79602e7de917, type: 3}
   actionValue: 25
   range: 1.5
   asset: {fileID: 8429163050563769646, guid: 86d4ff74afeeadf459d740185150027c, type: 3}

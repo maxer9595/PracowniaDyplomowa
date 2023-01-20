@@ -12,6 +12,7 @@ TagManager:
   - EquippedWeapon
   - EquippedItem
   - Door
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 

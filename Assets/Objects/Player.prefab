@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &263511294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263511295}
+  m_Layer: 0
+  m_Name: FloorCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263511295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263511294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6729327849591258514}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692603145248318963
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,14 +54,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692603145248318963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.551, y: -0.324, z: 0.573}
+  m_LocalRotation: {x: 0.112456664, y: 0.00039775972, z: 0.0035148703, w: 0.99365044}
+  m_LocalPosition: {x: 0.499, y: -0.192, z: 0.5}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6729327851057241090}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.914, y: 0.093, z: 0.416}
 --- !u!1 &4311113248090896230
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,9 +106,10 @@ GameObject:
   - component: {fileID: 6729327849591258512}
   - component: {fileID: 6729327849591258513}
   - component: {fileID: 6729327849591258519}
-  - component: {fileID: 6729327849591258516}
   - component: {fileID: 6729327849591258517}
   - component: {fileID: 1263391519}
+  - component: {fileID: 1260527843}
+  - component: {fileID: 7039143065006510327}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99,6 +131,7 @@ Transform:
   m_Children:
   - {fileID: 6729327851057241090}
   - {fileID: 7059132868531074143}
+  - {fileID: 263511295}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,24 +215,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &6729327849591258516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729327849591258526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96489fc239d2e2b4cb69c97589953a37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eq: {fileID: 0}
-  watchslot: {fileID: 0}
-  movmentSpeed: 10
-  sprintSpeed: 15
-  jumpHeight: 5
-  isEqVisible: 0
 --- !u!114 &6729327849591258517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55933ae929da38469fcdbb997a45b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sens: 500
+  sens: 300
   Camera: {fileID: 6729327851057241090}
 --- !u!114 &1263391519
 MonoBehaviour:
@@ -230,11 +245,52 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   suitSlot: {fileID: 0}
   watchslot: {fileID: 0}
-  hungerSpeed: 1
-  hungerSprintSpeed: 2
-  hungerJumpSpeed: 1
-  hungerDamage: 1
+  hungerSpeed: 0.5
+  hungerSprintSpeed: 0.1
+  hungerJumpSpeed: 0.25
+  hungerDamage: 0.5
   maxHealth: 100
+--- !u!143 &1260527843
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729327849591258526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5000001
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7039143065006510327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729327849591258526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96489fc239d2e2b4cb69c97589953a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eq: {fileID: 0}
+  watchslot: {fileID: 0}
+  movmentSpeed: 10
+  sprintSpeed: 15
+  isEqVisible: 0
+  PlayerController: {fileID: 1260527843}
+  floorCheck: {fileID: 263511295}
+  distanceFromFloor: 0.4
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &6729327851057241091
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,10 +468,10 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7093995077241482355}
-  m_Material: {fileID: 13400000, guid: aeb2b70c06e5fe244ac87ff5ca63c9a9, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
