@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6337039095302251556
+--- !u!1 &1657348412127492010
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6681793562611334814}
-  - component: {fileID: 7716254143030997307}
-  - component: {fileID: 5544303924555498993}
-  - component: {fileID: 6570970292832667556}
-  - component: {fileID: 5430377214018684025}
+  - component: {fileID: 2038940088131054864}
+  - component: {fileID: 3162686512229114549}
+  - component: {fileID: 864948318533654143}
+  - component: {fileID: 391059382621227868}
+  - component: {fileID: 1871974414365465125}
   m_Layer: 0
-  m_Name: medkit
+  m_Name: ruler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6681793562611334814
+--- !u!4 &2038940088131054864
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6337039095302251556}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1657348412127492010}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.028272152, z: 1.044689}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7716254143030997307
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!33 &3162686512229114549
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6337039095302251556}
-  m_Mesh: {fileID: -5495902117074765545, guid: fcf754e59cc2fd443bca55d775180bad, type: 3}
---- !u!23 &5544303924555498993
+  m_GameObject: {fileID: 1657348412127492010}
+  m_Mesh: {fileID: -5495902117074765545, guid: 77550a6d88cd9f2499ad16404a5e0a29, type: 3}
+--- !u!23 &864948318533654143
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6337039095302251556}
+  m_GameObject: {fileID: 1657348412127492010}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61037f29d3503cd45a31366b96134965, type: 2}
+  - {fileID: 2100000, guid: 2a7640bbee2d7fd479283dae5642ff1c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,31 +85,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6570970292832667556
+--- !u!114 &391059382621227868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6337039095302251556}
+  m_GameObject: {fileID: 1657348412127492010}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 027e748c809988b41bb114814ff4a88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 1f0240c8fc6f99e40a509c95fa31c9fd, type: 2}
+  item: {fileID: 11400000, guid: 587056eee65fa87439dd02ac8f8d7a2d, type: 2}
   animationSpeed: 0.3
---- !u!64 &5430377214018684025
-MeshCollider:
+--- !u!65 &1871974414365465125
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6337039095302251556}
+  m_GameObject: {fileID: 1657348412127492010}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: fcf754e59cc2fd443bca55d775180bad, type: 3}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3728557, y: 1.0343913, z: 1.9999995}
+  m_Center: {x: 0.036109567, y: 0.13049684, z: 0}

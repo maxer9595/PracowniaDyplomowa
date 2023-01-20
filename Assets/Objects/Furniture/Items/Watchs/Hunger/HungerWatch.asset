@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7d65d286ae9a074489cb5206447700b, type: 3}
-  m_Name: medkit
+  m_Name: HungerWatch
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 555062508d4ff984688b3336c87dce48, type: 3}
-  actionValue: 35
+  icon: {fileID: 21300000, guid: 7a73b127f2ce79f439096ca5b13e9c44, type: 3}
+  actionValue: 30
   range: 1.5
-  asset: {fileID: 6337039095302251556, guid: fe8e39277ef2d164f85c515e0a1306b5, type: 3}
-  itemType: 4
-  watchBoost: 0
+  asset: {fileID: 8065402702943584092, guid: bbccab6ceb728bf47bf9385e4a8e113b, type: 3}
+  itemType: 2
+  watchBoost: 3

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7d65d286ae9a074489cb5206447700b, type: 3}
-  m_Name: medkit
+  m_Name: LegendaryDonut
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 555062508d4ff984688b3336c87dce48, type: 3}
-  actionValue: 35
+  icon: {fileID: 21300000, guid: e0732b9fe25c3e8458e1b23a20179536, type: 3}
+  actionValue: 40
   range: 1.5
-  asset: {fileID: 6337039095302251556, guid: fe8e39277ef2d164f85c515e0a1306b5, type: 3}
-  itemType: 4
+  asset: {fileID: 3193554352949355432, guid: 14ccde9f1e04be840bc94cbefd08c7fe, type: 3}
+  itemType: 1
   watchBoost: 0

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7d65d286ae9a074489cb5206447700b, type: 3}
-  m_Name: medkit
+  m_Name: Ruler
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 555062508d4ff984688b3336c87dce48, type: 3}
-  actionValue: 35
+  icon: {fileID: 21300000, guid: 331b3bce9f11c444c933a18a2c17f4b2, type: 3}
+  actionValue: 20
   range: 1.5
-  asset: {fileID: 6337039095302251556, guid: fe8e39277ef2d164f85c515e0a1306b5, type: 3}
-  itemType: 4
+  asset: {fileID: 1657348412127492010, guid: 0ec62c28c44a7e545a67c016b0549e2f, type: 3}
+  itemType: 0
   watchBoost: 0
