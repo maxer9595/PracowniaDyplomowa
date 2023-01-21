@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemiesMenager : MonoBehaviour
 {
-    public GameObject wall;
+    public GameObject EndGameDoors;
     public EndLevel endingWall;
     Enemy[] enemies;
 
@@ -11,7 +11,7 @@ public class EnemiesMenager : MonoBehaviour
         enemies = this.GetComponentsInChildren<Enemy>();
         if (enemies.Length <= 0)
         {
-            Destroy(wall);
+            Destroy(EndGameDoors);
             endingWall.col.enabled = true;
         }
     }
