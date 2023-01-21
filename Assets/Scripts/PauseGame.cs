@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -7,7 +6,8 @@ public class PauseGame : MonoBehaviour
     bool isActive = false;
     void Start()
     {
-        pauseMenuUi.SetActive(false);
+        // pauseMenuUi.SetActive(false);
+        Resume();
     }
 
     void Update()
@@ -34,13 +34,5 @@ public class PauseGame : MonoBehaviour
         pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
         isActive = false;
-    }
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

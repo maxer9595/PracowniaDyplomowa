@@ -163,6 +163,7 @@ public class EqManager : MonoBehaviour
             else
             {
                 timer = 1f;
+                animator.SetBool("Use", false);
             }
         }
     }

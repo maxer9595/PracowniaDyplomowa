@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 public class HungerAndHealth : MonoBehaviour
 {
+    public SceneMenager sceneMenager;
     public static HungerAndHealth instance;
     public Slider HungerBar;
     public Slider HealthBar;
@@ -106,7 +106,7 @@ public class HungerAndHealth : MonoBehaviour
     {
         if (HealthBar.value <= 0)
         {
-            SceneManager.LoadScene("DeathScreen");
+            sceneMenager.DeathScreen();
         }
     }
 }

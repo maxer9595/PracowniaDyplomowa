@@ -1,20 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class EndLevel : MonoBehaviour
 {
     [HideInInspector] public Collider col;
+    public SceneMenager sceneMenager;
     void Start()
     {
         col = this.GetComponent<Collider>();
         col.enabled = false;
     }
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("EndLevelScene");
+            sceneMenager.EndLevelScene();
         }
     }
 
