@@ -21866,6 +21866,24 @@ Transform:
   m_Father: {fileID: 1566406186}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &407455477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b2fd65466756a1489042bfd80ddd735, type: 3}
+  m_PrefabInstance: {fileID: 608502154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &407455481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407455477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.9999998, z: 1.9999998}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &411328834 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5122ecfb833c09244ba0395ffb41dafc, type: 3}
@@ -55518,7 +55536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6729327849591258514, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 6729327849591258514, guid: 2cf7a2b825223804581e7cee9e91c4d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -94635,7 +94653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa5fe07a301fc4399cd979486eeec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndGameDoors: {fileID: 0}
+  EndGameDoors: {fileID: 407455477}
   endingWall: {fileID: 156366480}
 --- !u!4 &2097605120
 Transform:
