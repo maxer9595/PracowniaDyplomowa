@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody rb;
     Animator animator;
     float distanceFromPlayer;
-    float timer = 0.3f;
+    float timer = 1f;
     float timeWithoutCollision = 0f;
     bool isFighting = false;
 
@@ -38,9 +38,7 @@ public class Enemy : MonoBehaviour
         {
             enemyHealth -= 5;
             Vector3 pos = (transform.position - other.transform.position).normalized;
-            rb.AddForce(pos * 15f, ForceMode.Impulse);
-            Debug.Log("HIT");
-            Debug.Log(other.name);
+            rb.AddForce(pos * 20f, ForceMode.Impulse);
         }
     }
 

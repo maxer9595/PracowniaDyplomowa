@@ -12,7 +12,7 @@ public class EqManager : MonoBehaviour
     [HideInInspector] public GameObject newItem;
     public GameObject player;
     public int focusedSlot = -1;
-    float timer = 1.5f;
+    float timer = 1f;
     private void Awake()
     {
         instance = this;
@@ -41,25 +41,32 @@ public class EqManager : MonoBehaviour
     public void SlotMenager()
     {
         ItemInInventory slotValue = GetSlotValue();
-        ItemController itemController = ItemHand.GetComponentInChildren<ItemController>();
-        if ((slotValue == null && itemController != null) || (slotValue != null && itemController != null))
-        {
-            Destroy(itemController.gameObject);
-
-        }
-        else if (slotValue == null && itemController != null)
-        {
-            if (slotValue.item != itemController.item)
-            {
-                Destroy(itemController.gameObject);
-            }
-        }
+        ItemController itemInHand = ItemHand.GetComponentInChildren<ItemController>();
+        ItemController weaponInHand = WeaponHand.GetComponentInChildren<ItemController>();
+        HandMenager(slotValue, itemInHand);
+        HandMenager(slotValue, weaponInHand);
 
         if (slotValue != null)
         {
             AddItemToHand(slotValue);
         }
 
+    }
+
+    private static void HandMenager(ItemInInventory slotValue, ItemController itemInHand)
+    {
+        if ((slotValue == null && itemInHand != null) || (slotValue != null && itemInHand != null))
+        {
+            Destroy(itemInHand.gameObject);
+
+        }
+        else if (slotValue == null && itemInHand != null)
+        {
+            if (slotValue.item != itemInHand.item)
+            {
+                Destroy(itemInHand.gameObject);
+            }
+        }
     }
 
     private void AddItemToHand(ItemInInventory slotValue)
@@ -136,19 +143,26 @@ public class EqManager : MonoBehaviour
 
     public void useItem()
     {
-        if (Input.GetMouseButton(1))
+        ItemInInventory slotValue = GetSlotValue();
+        if (slotValue != null)
         {
-            ItemInInventory slot = GetSlotValue();
-            if (slot != null)
+            Animator animator = ItemHand.GetComponentInChildren<Animator>();
+            if (Input.GetMouseButton(1))
             {
+                if (animator != null && animator.isActiveAndEnabled)
+                {
+                    animator.SetBool("Use", true);
+                }
                 timer -= Time.deltaTime;
                 if (timer <= 0f)
                 {
-                    UseAndDestroy(slot);
-                    timer = 1.5f;
+                    UseAndDestroy(slotValue);
+                    timer = 1f;
                 }
-                Debug.Log(timer);
-
+            }
+            else
+            {
+                timer = 1f;
             }
         }
     }
