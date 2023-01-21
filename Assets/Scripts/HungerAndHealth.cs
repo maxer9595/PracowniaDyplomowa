@@ -100,7 +100,6 @@ public class HungerAndHealth : MonoBehaviour
         {
             newDamage = damage;
         }
-        Debug.Log(newDamage);
         HealthBar.value -= newDamage;
     }
     public void Death()

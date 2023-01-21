@@ -22,7 +22,8 @@ public class WatchSlot : MonoBehaviour, IDropHandler
     {
         GameObject dropped = eventData.pointerDrag;
         ItemInInventory itemInInventory = dropped.GetComponent<ItemInInventory>();
-        if (itemInInventory.item.itemType == itemType.Watch)
+        ItemInInventory slotValue = this.GetComponentInChildren<ItemInInventory>();
+        if (itemInInventory.item.itemType == itemType.Watch && slotValue == null)
         {
             itemInInventory.afterParent = transform;
         }
@@ -71,12 +72,5 @@ public class WatchSlot : MonoBehaviour, IDropHandler
             sprintBoost = 1f;
         }
     }
-
-    //TE FUNCKJE MAJĄ ZOSTAĆ ALE MAJA POBIERAC I PRZEKAZYWAĆ DANE DO INNYCH FUNKCJI JAKO 
-    //MNOIŻNIKI HEALTH MOŻE TU ZOSTAĆ BO TO BEZ ZNACZENIA ABO 100 ALBO WARTOŚC BOPOSTA BEDZIE TO UNIWERSALNE
-    //SPEED MA MNOŻNIK
-    //HUNGER TEZ
-
-
 
 }
