@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/EndLevelScene.unity
     guid: d6374f9ff6ca57749badf77bc2e0f455
   - enabled: 1
+    path: Assets/Scenes/StoryScene.unity
+    guid: e573092b048859946adc4a5da976119a
+  - enabled: 1
     path: Assets/Scenes/MapScene.unity
     guid: 1e15854350f1de84bab43b67751024e1
   m_configObjects: {}
