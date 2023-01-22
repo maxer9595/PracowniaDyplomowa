@@ -10,14 +10,10 @@ public class SceneMenager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
-        if (SceneManager.GetActiveScene().name == "MapScene")
+        if (SceneManager.GetActiveScene().name == "MapScene" && bgMusic.instance != null)
         {
             bgMusic.instance.GetComponent<AudioSource>().Pause();
         }
-        // if (SceneManager.GetActiveScene().name == "MainMenu" && dontChangeMusic)
-        // {
-        //     bgMusic.instance.GetComponent<AudioSource>().Play();
-        // }
     }
     public void ReturnToMenu(bool changeMusic = false)
     {
