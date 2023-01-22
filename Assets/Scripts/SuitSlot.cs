@@ -23,7 +23,6 @@ public class SuitSlot : MonoBehaviour, IDropHandler
         GameObject dropped = eventData.pointerDrag;
         ItemInInventory itemInInventory = dropped.GetComponent<ItemInInventory>();
         ItemInInventory slotValue = this.GetComponentInChildren<ItemInInventory>();
-        Debug.Log(slotValue);
         if (itemInInventory.item.itemType == itemType.Suit && slotValue == null)
         {
             itemInInventory.afterParent = transform;

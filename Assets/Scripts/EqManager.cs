@@ -146,24 +146,27 @@ public class EqManager : MonoBehaviour
         ItemInInventory slotValue = GetSlotValue();
         if (slotValue != null)
         {
-            Animator animator = ItemHand.GetComponentInChildren<Animator>();
-            if (Input.GetMouseButton(1))
+            if (slotValue.item.itemType == itemType.Health || slotValue.item.itemType == itemType.Food)
             {
-                if (animator != null && animator.isActiveAndEnabled)
+                Animator animator = ItemHand.GetComponentInChildren<Animator>();
+                if (Input.GetMouseButton(1))
                 {
-                    animator.SetBool("Use", true);
+                    if (animator != null && animator.isActiveAndEnabled)
+                    {
+                        animator.SetBool("Use", true);
+                    }
+                    timer -= Time.deltaTime;
+                    if (timer <= 0f)
+                    {
+                        UseAndDestroy(slotValue);
+                        timer = 1f;
+                    }
                 }
-                timer -= Time.deltaTime;
-                if (timer <= 0f)
+                else
                 {
-                    UseAndDestroy(slotValue);
                     timer = 1f;
+                    animator.SetBool("Use", false);
                 }
-            }
-            else
-            {
-                timer = 1f;
-                animator.SetBool("Use", false);
             }
         }
     }

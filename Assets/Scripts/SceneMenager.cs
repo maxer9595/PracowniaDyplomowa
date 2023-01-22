@@ -38,4 +38,8 @@ public class SceneMenager : MonoBehaviour
     {
         SceneManager.LoadScene("EndLevelScene");
     }
+    public void StoryScene()
+    {
+        SceneManager.LoadScene("StoryScene");
+    }
 }
