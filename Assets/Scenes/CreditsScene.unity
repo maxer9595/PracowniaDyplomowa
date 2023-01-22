@@ -291,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -407.71265, y: 3.1514}
-  m_SizeDelta: {x: 971.6705, y: 912.967}
+  m_AnchoredPosition: {x: -55.302, y: 3.1514}
+  m_SizeDelta: {x: 1676.5, y: 912.967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301936029
 MonoBehaviour:
@@ -321,7 +321,14 @@ MonoBehaviour:
     Marcel Mrozowski
 
 
-    Music:'
+    Main Menu Song:
+
+    Waterflame
+    - Glorious Morning
+
+    https://www.youtube.com/channel/UCVuv5iaVR55QXIc_BHQLakA
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b4351c4ef1ad15445a630485f61351c8, type: 2}
   m_sharedMaterial: {fileID: -3381537259039749662, guid: b4351c4ef1ad15445a630485f61351c8, type: 2}
