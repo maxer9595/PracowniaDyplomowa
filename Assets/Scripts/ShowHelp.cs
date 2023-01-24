@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PauseGame : MonoBehaviour
+public class ShowHelp : MonoBehaviour
 {
-    public GameObject pauseMenuUi;
-    public static PauseGame instance;
+    public GameObject helpUi;
+    public static ShowHelp instance;
     [HideInInspector] public bool isActive = false;
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class PauseGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !ShowHelp.instance.isActive)
+        if (Input.GetKeyDown(KeyCode.H) && !PauseGame.instance.isActive)
         {
             if (isActive)
             {
@@ -27,7 +27,7 @@ public class PauseGame : MonoBehaviour
     }
     public void Pause()
     {
-        pauseMenuUi.SetActive(true);
+        helpUi.SetActive(true);
         Time.timeScale = 0f;
         isActive = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -35,7 +35,7 @@ public class PauseGame : MonoBehaviour
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        pauseMenuUi.SetActive(false);
+        helpUi.SetActive(false);
         Time.timeScale = 1f;
         isActive = false;
     }
